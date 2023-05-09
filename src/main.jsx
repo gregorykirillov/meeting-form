@@ -1,9 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import { App } from './components'
+
+import { ConfigProvider } from '@vkontakte/vkui'
+import '@vkontakte/vkui/dist/vkui.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ConfigProvider appearance="light">
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ConfigProvider>
 )
