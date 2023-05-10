@@ -1,5 +1,5 @@
 import React from 'react'
-import { MeetingForm } from '../'
+import { MeetingForm } from '@/components'
 import style from './style.module.scss'
 
 const App = () => {
