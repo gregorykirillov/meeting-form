@@ -18,6 +18,15 @@ const roomsOptions = Array(ROOMS)
   }))
 
 export const options = { towersOptions, floorsOptions, roomsOptions }
+export const placeholders = {
+  tower: 'Выберите башню',
+  floor: 'Выберите этаж',
+  room: 'Выберите номер комнаты'
+}
+export const labels = {
+  timeStart: 'Начало',
+  timeEnd: 'Конец'
+}
 
 export const TimeTypes = {
   Start: 'start',

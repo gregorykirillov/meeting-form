@@ -1,3 +1,12 @@
+.timeBlock {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+  font-family: monospace;
+  font-size: 16px;
+}
+
 .timeInput {
   width: 100px;
   padding: 7px;

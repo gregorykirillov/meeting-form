@@ -11,7 +11,7 @@ import {
 
 import { RequiredInputWrapper } from '../'
 import useDate from './useDate'
-import { TimeTypes, options, dateValues } from './consts'
+import { TimeTypes, options, dateValues, placeholders, labels } from './consts'
 import { TimeSelector } from '@/uikit'
 
 import style from './style.module.scss'
@@ -39,7 +39,7 @@ const MeetingForm = () => {
         <FormLayout onSubmit={handleSubmit} className={style.form}>
           <RequiredInputWrapper>
             <Select
-              placeholder="Выберите башню"
+              placeholder={placeholders.tower}
               value={tower}
               onChange={handleTowerChange}
               options={options.towersOptions}
@@ -47,7 +47,7 @@ const MeetingForm = () => {
           </RequiredInputWrapper>
           <RequiredInputWrapper>
             <Select
-              placeholder="Выберите этаж"
+              placeholder={placeholders.floor}
               value={floor}
               onChange={handleFloorChange}
               options={options.floorsOptions}
@@ -55,7 +55,7 @@ const MeetingForm = () => {
           </RequiredInputWrapper>
           <RequiredInputWrapper>
             <Select
-              placeholder="Выберите номер комнаты"
+              placeholder={placeholders.room}
               value={roomNumber}
               onChange={handleRoomNumberChange}
               options={options.roomsOptions}
@@ -71,11 +71,13 @@ const MeetingForm = () => {
             <TimeSelector
               value={time[TimeTypes.Start]}
               onTimeChange={(time) => handleTimeChange(time, TimeTypes.Start)}
+              label={labels.timeStart}
               required
             />
             <TimeSelector
               value={time[TimeTypes.End]}
               onTimeChange={(time) => handleTimeChange(time, TimeTypes.End)}
+              label={labels.timeEnd}
               required
             />
           </div>
