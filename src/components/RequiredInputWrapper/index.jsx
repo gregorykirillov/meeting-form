@@ -12,7 +12,7 @@ const RequiredInputWrapper = ({ defaultValue, children }) => {
       return
     }
 
-    setInputValue(children.props.value)
+    setInputValue(children.props.value || '')
   }, [children.props.value])
 
   return (
@@ -22,6 +22,7 @@ const RequiredInputWrapper = ({ defaultValue, children }) => {
         required
         className={style.input}
         onChange={() => {}}
+        tabIndex={-1}
       />
       {children}
     </div>

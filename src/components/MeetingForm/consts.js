@@ -21,7 +21,8 @@ export const options = { towersOptions, floorsOptions, roomsOptions }
 export const placeholders = {
   tower: 'Выберите башню',
   floor: 'Выберите этаж',
-  room: 'Выберите номер комнаты'
+  room: 'Выберите номер комнаты',
+  comment: 'Комментарий'
 }
 export const labels = {
   timeStart: 'Начало',
@@ -34,24 +35,3 @@ export const TimeTypes = {
 }
 
 export const defaultTime = { [TimeTypes.Start]: '', [TimeTypes.End]: '' }
-
-const currentDate = new Date()
-export const dateValues = {
-  default: {
-    day: currentDate.getDate(),
-    month: currentDate.getMonth() + 1,
-    year: currentDate.getFullYear()
-  },
-
-  min: {
-    day: currentDate.getDay(),
-    month: currentDate.getMonth() + 1,
-    year: currentDate.getFullYear()
-  },
-
-  max: {
-    day: currentDate.getDay(),
-    month: currentDate.getMonth() + 1,
-    year: currentDate.getFullYear() + 1
-  }
-}

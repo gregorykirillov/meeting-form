@@ -4,20 +4,21 @@ import {
   Select,
   Button,
   Textarea,
-  DatePicker,
   Panel,
-  Title
+  Title,
+  DateInput
 } from '@vkontakte/vkui'
 
 import { RequiredInputWrapper } from '../'
 import useDate from './useDate'
-import { TimeTypes, options, dateValues, placeholders, labels } from './consts'
+import { TimeTypes, options, placeholders, labels } from './consts'
 import { TimeSelector } from '@/uikit'
 
 import style from './style.module.scss'
 
 const MeetingForm = () => {
   const {
+    date,
     time,
     floor,
     tower,
@@ -61,12 +62,14 @@ const MeetingForm = () => {
               options={options.roomsOptions}
             />
           </RequiredInputWrapper>
-          <DatePicker
-            onDateChange={handleDateChange}
-            min={dateValues.min}
-            max={dateValues.max}
-            defaultValue={dateValues.default}
-          />
+          <RequiredInputWrapper>
+            <DateInput
+              value={date}
+              disablePast
+              onChange={handleDateChange}
+              className={style.date}
+            />
+          </RequiredInputWrapper>
           <div className={style.timeWrapper}>
             <TimeSelector
               value={time[TimeTypes.Start]}
@@ -83,7 +86,7 @@ const MeetingForm = () => {
           </div>
           <Textarea
             value={comment}
-            placeholder="Комментарий"
+            placeholder={placeholders.comment}
             onChange={handleCommentChange}
           />
           <Button type="submit">Отправить</Button>

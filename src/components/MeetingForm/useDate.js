@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { TimeTypes, defaultTime, dateValues } from './consts'
+import { TimeTypes, defaultTime } from './consts'
 
 const useDate = () => {
   const [tower, setTower] = useState('')
   const [floor, setFloor] = useState('')
   const [comment, setComment] = useState('')
   const [roomNumber, setRoomNumber] = useState('')
-  const [date, setDate] = useState(dateValues.default)
+  const [date, setDate] = useState()
   const [time, setTime] = useState(defaultTime)
 
   const handleTowerChange = (e) => {
@@ -21,8 +21,8 @@ const useDate = () => {
     setRoomNumber(parseInt(e.target.value, 10))
   }
 
-  const handleDateChange = (value) => {
-    setDate(value)
+  const handleDateChange = (date) => {
+    date ? setDate(date) : setDate()
   }
 
   const handleCommentChange = (e) => {
@@ -34,7 +34,7 @@ const useDate = () => {
     setFloor('')
     setComment('')
     setRoomNumber('')
-    setDate(dateValues.default)
+    setDate()
     setTime(defaultTime)
   }
 
@@ -52,8 +52,8 @@ const useDate = () => {
       tower,
       floor,
       roomNumber,
-      date: new Date(date.year, date.month, date.day)
-        .toISOString()
+      date: new Date(date)
+        .toLocaleString()
         .slice(0, 10),
       comment,
       time: {
